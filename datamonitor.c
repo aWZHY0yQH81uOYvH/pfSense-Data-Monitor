@@ -160,7 +160,7 @@ int main(int argc, const char **argv) {
 	if(this_month != saved_month) {
 		// Report this month's traffic volume
 		long long total_total = total_in4 + total_in6 + total_out4 + total_out6;
-		snprintf(buf, 1024, "{\"content\": \"**Past Month's Traffic**\\n\\tIn v4: %.02fGB\\n\\tIn v6: %.02fGB\\n\\tOut v4: %.02fGB\\n\\tOut v6: %.02f\\n\\t**Total: %.02fGB**\\n\"}", total_in4/1e9, total_in6/1e9, total_out4/1e9, total_out6/1e9, total_total/1e9);
+		snprintf(buf, 1024, "{\"content\": \"**Past Month's Traffic**\\n\\tIn v4: %.02f GB\\n\\tIn v6: %.02f GB\\n\\tOut v4: %.02f GB\\n\\tOut v6: %.02f GB\\n\\t**Total: %.02f GB**\\n\"}", total_in4/1e9, total_in6/1e9, total_out4/1e9, total_out6/1e9, total_total/1e9);
 		send_message(buf);
 
 		// Update data file
@@ -200,7 +200,7 @@ int main(int argc, const char **argv) {
 
 	// Send warning if we're exceeding the limit
 	if(total_total >= DATA_WARN && total_total_old < DATA_WARN) {
-		snprintf(buf, 1024, "{\"content\": \"**WARNING: Data usage exceeding limit!**\\n\\tIn v4: %.02fGB\\n\\tIn v6: %.02fGB\\n\\tOut v4: %.02fGB\\n\\tOut v6: %.02f\\n\\t**Total: %.02fGB**\\n\"}", total_in4/1e9, total_in6/1e9, total_out4/1e9, total_out6/1e9, total_total/1e9);
+		snprintf(buf, 1024, "{\"content\": \"**WARNING: Data usage exceeding limit!**\\n\\tIn v4: %.02f GB\\n\\tIn v6: %.02f GB\\n\\tOut v4: %.02f GB\\n\\tOut v6: %.02f GB\\n\\t**Total: %.02f GB**\\n\"}", total_in4/1e9, total_in6/1e9, total_out4/1e9, total_out6/1e9, total_total/1e9);
 		send_message(buf);
 	}
 
